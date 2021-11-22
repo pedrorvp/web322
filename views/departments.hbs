@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-md-12">
+    <h2>
+      Departments
+      <a href="/departments/add" class="btn btn-success pull-right">Add New Department</a>
+    </h2>
+    <hr />
+    <table class="table table-responsive">
+      <thead>
+        <tr>
+          <th scope="col">Department Id</th>
+          <th scope="col">Department Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each departments}}
+        <tr>
+          <th scope="row"><a href="/department/{{departmentId}}">{{departmentId}}</a></th>
+          <td><a href="/department/{{departmentId}}">{{departmentName}}</a></td>
+          <td><a href="/departments/delete/{{departmentId}}" class="btn btn-danger">Delete</a></td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+    {{#unless departments}}
+    <div class="col-md-12 text-center">
+      <strong>{{message}}</strong>
+    </div>
+    {{/unless}}
+  </div>
+</div>

@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-md-12">
+    <h2>
+      Employees
+      <a href="/employees/add" class="btn btn-success pull-right">Add New Employee</a>
+    </h2>
+    <hr />
+    <table class="table table-responsive">
+      <thead>
+        <tr>
+          <th scope="col">Employee Num</th>
+          <th scope="col">Full Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Address</th>
+          <th scope="col">Manager ID</th>
+          <th scope="col">Status</th>
+          <th scope="col">Department</th>
+          <th scope="col">Hired On</th>
+        </tr>
+      </thead>
+      <tbody>
+      {{#each employees}}
+        <tr>
+          <th scope="row"><a href='/employee/{{employeeId}}'>{{employeeId}}</a></th>
+          <td><a href='/employee/{{employeeNum}}'>{{firstName}} {{lastName}}</a></td>
+          <td><a>{{email}}</a></td>
+          <td>{{addressStreet}} {{addressCity}} {{addressState}} {{addresPostal}}</td>
+          <td><a href='/employees?manager={{employeeManagerNum}}'>{{employeeManagerNum}}</a></td>
+          <td><a href='/employees?status="{{status}}"'>{{status}}</a></td>
+          <td><a href='/employees?department={{department}}'>{{department}}</a></td>
+          <td>{{hireDate}}</td>
+          <td><a href="/employees/delete/{{employeeId}}" class="btn btn-danger">Delete</a></td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+    {{#unless employees}}
+      <div class="col-md-12 text-center">
+        <strong>{{message}}</strong>
+      </div>
+    {{/unless}}
+  </div>
+</div>
